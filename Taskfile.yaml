@@ -1,0 +1,16 @@
+#./TaskFile.yaml
+
+version: "3"
+
+tasks:
+  default:
+    cmds:
+      - task: generate
+  
+  generate:
+    aliases:
+      - gen
+    desc: "Generate from proto files"
+    cmds:
+      - "python -m grpc_tools.protoc -I proto proto/sso/sso.proto --python_out=./gen/python --grpc_python_out=./gen/python"
+      
